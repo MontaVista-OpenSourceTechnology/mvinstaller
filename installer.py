@@ -372,7 +372,7 @@ class Installer:
             input_fstab = "/etc/fstab"
             pass
 
-        prog = subprocess.call(("mvpartition",
+        prog = subprocess.call(("uipartition",
                                 "--output-fstab", "/tmp/fstab",
                                 "--input-fstab", input_fstab))
         self.reread_fstab()
