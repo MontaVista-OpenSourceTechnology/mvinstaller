@@ -12,6 +12,21 @@ the installer somehow.  It will need to have a file named
 the target.  You would generally create a .wic filesystem from yocto,
 or an ISO filesystem, but the details for that are not included here.
 
+Depending on what you use from the installer, installed image will
+need to have grub, grub-efi, efibootmgr, mvmkramdisk, mdadm, lvm2 and
+perhaps other things.
+
+mvmkramdisk is optional.  If it is on the installed system, the
+installer will use it to create a ramdisk that the boot system will
+use.  This is required to use RAID, LVM, or if the disk drivers are
+modules.  If you don't have mvmkramdisk, you can only have normal disk
+devices (no RAID or LVM) and you must compile support for all the disk
+drivers into the kernel.
+
+The kernel for the installer will probably need to have the disk
+driver support built in to the kernel, but it can be modules in the
+installed system ad mvmkramdisk
+
 Using the Installer
 -------------------
 
